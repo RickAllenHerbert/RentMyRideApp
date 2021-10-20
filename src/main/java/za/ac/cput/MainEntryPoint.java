@@ -8,8 +8,8 @@ public class MainEntryPoint {
     public static void main(String[] args) {
         //new HomePage();
 
-        //new AccessPage();
+        new AccessPage();
 
-        new ReservationPage();
+        //new ReservationPage();
     }
 }

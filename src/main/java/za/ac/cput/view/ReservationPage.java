@@ -1,5 +1,7 @@
 package za.ac.cput.view;
 
+import za.ac.cput.entity.Car;
+import za.ac.cput.service.CarDAO;
 import za.ac.cput.view.general.TopNavigationBar;
 
 import javax.swing.*;
@@ -7,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class ReservationPage extends JFrame {
     private JTextField pickupLocation;
@@ -77,6 +81,9 @@ public class ReservationPage extends JFrame {
         centerTopPanel.add(centerTopPanelDataHolder);
 
         centerPanel.add(centerTopPanel, BorderLayout.NORTH);
+
+        //ArrayList<Car> allCars = CarDAO.getAllCars();
+
 
         JPanel centerMiddlePanel = new JPanel();
         centerMiddlePanel.setBackground(Color.PINK);

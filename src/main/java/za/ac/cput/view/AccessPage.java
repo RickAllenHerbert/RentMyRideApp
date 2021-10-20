@@ -14,7 +14,7 @@ public class AccessPage extends JFrame {
     public AccessPage() {
         super("Welcome to Rent My Ride");
         contPanel = new JPanel();
-        loginPanel = new LoginPanel();
+        loginPanel = new LoginPanel(this);
         registerPanel = new RegisterPanel();
         cL = new CardLayout();
 
@@ -44,6 +44,7 @@ public class AccessPage extends JFrame {
     public static void Login() {
         cL.show(contPanel, "1");
     }
+
 
 
 }

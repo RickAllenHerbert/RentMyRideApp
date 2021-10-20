@@ -1,6 +1,9 @@
 package za.ac.cput.view.usersetup;
 
+import za.ac.cput.entity.MultiPurposeUser;
+import za.ac.cput.service.UserDAO;
 import za.ac.cput.view.AccessPage;
+import za.ac.cput.view.HomePage;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,7 +18,7 @@ public class LoginPanel extends JPanel {
     private JButton btnLogin, btnGoToRegister;
     private ImageIcon iconLogo;
 
-    public LoginPanel() {
+    public LoginPanel(JFrame frame) {
         Color orangeColor = new Color(244, 143, 81);
         panelWest = new JPanel();
 
@@ -56,6 +59,33 @@ public class LoginPanel extends JPanel {
         btnLogin.setBorderPainted(false);
         btnLogin.setBackground(orangeColor);
         btnLogin.setForeground(Color.WHITE);
+        btnLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(txtUsername.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null,"Username cannot be empty.","Alert",JOptionPane.WARNING_MESSAGE);
+                }
+                else if(txtPassword.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null,"Password cannot be empty.","Alert",JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    String username = txtUsername.getText();
+                    String password = txtPassword.getText();
+
+                    MultiPurposeUser currentUser = UserDAO.login(username, password);
+                    System.out.println(currentUser);
+
+                    if(currentUser != null) {
+                        if(currentUser.getUserType().equals("Customer")) {
+
+                            HomePage homePage = new HomePage();
+                            frame.dispose();
+                        }
+                    }
+
+                }
+            }
+        });
 
         btnGoToRegister = new JButton("Not registered? Register now!");
         btnGoToRegister.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));

@@ -43,7 +43,6 @@ public class HomePage extends JFrame {
 
         setSize(1200, 1000);
         setPreferredSize(new Dimension(1200, 760));
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         pack();
         setVisible(true);

@@ -6,7 +6,7 @@ import za.ac.cput.view.ReservationPage;
 
 public class MainEntryPoint {
     public static void main(String[] args) {
-        //new HomePage();
+        new HomePage();
 
         //new AccessPage();
 

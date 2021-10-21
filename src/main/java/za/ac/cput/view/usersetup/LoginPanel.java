@@ -3,6 +3,7 @@ package za.ac.cput.view.usersetup;
 import za.ac.cput.entity.MultiPurposeUser;
 import za.ac.cput.service.UserDAO;
 import za.ac.cput.view.AccessPage;
+import za.ac.cput.view.EmployeePage;
 import za.ac.cput.view.HomePage;
 
 import javax.swing.*;
@@ -79,6 +80,10 @@ public class LoginPanel extends JPanel {
                         if(currentUser.getUserType().equals("Customer")) {
 
                             HomePage homePage = new HomePage();
+                            frame.dispose();
+                        }
+                        if(currentUser.getUserType().equals("Admin")) {
+                            EmployeePage employeePage = new EmployeePage();
                             frame.dispose();
                         }
                     }
